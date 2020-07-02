@@ -45,9 +45,9 @@ public class typingTutor implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		char keypressed=e.getKeyChar();
 		System.out.println("you pressed: "+keypressed);
-		if(keypressed==generateRandomLetter()) {
+		if(keypressed==currentLetter) {
 			frame.setBackground(Color.green);
-		}else {
+		}else{
 			frame.setBackground(Color.red);
 		}
 	}
