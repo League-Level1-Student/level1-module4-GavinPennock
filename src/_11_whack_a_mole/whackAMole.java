@@ -6,13 +6,14 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class whackAMole implements ActionListener {
 	String mole="mole";
 
 	JFrame frame = new JFrame("click or bring shame to your family");
-	JButton button=new JButton();
+	JButton button=new JButton("start");
 	JButton button1 = new JButton();
 	JButton button2 = new JButton();
 	JButton button3 = new JButton();
@@ -30,8 +31,10 @@ public class whackAMole implements ActionListener {
 	JButton button15 = new JButton();
 	JButton button16 = new JButton();
 	JPanel panel=new JPanel();
+	JLabel label=new JLabel("mole");
 
 	public void run() {
+		label.setText("MOLE");
 		//stuff
 		button.addActionListener(this);
 		button1.addActionListener(this);
@@ -76,7 +79,38 @@ public class whackAMole implements ActionListener {
 void pickMole() {
 	Random ran=new Random();
 	int random=ran.nextInt(16);
-	
+	if(random==0) {
+		button1.add(label);
+	}else if(random==1) {
+		button2.add(label);
+	}else if(random==2) {
+		button3.add(label);
+	}else if(random==3) {
+		button4.add(label);
+	}else if(random==4) {
+		button5.add(label);
+	}else if(random==5) {
+		button6.add(label);
+	}else if(random==6) {
+		button7.add(label);
+	}else if(random==7) {
+		button8.add(label);
+	}else if(random==8) {
+		button9.add(label);
+	}else if(random==10) {
+		button11.add(label);
+	}else if(random==11) {
+		button12.add(label);
+	}else if(random==12) {
+		button13.add(label);
+	}else if(random==13) {
+		button14.add(label);
+	}else if(random==14) {
+		button15.add(label);
+	}else if(random==15) {
+		button16.add(label);
+	}
+
 }
 	
 	@Override
@@ -84,6 +118,7 @@ void pickMole() {
 		JButton buttonPressed = (JButton) e.getSource();
 		if(buttonPressed==button) {
 			pickMole();
+			System.out.println("started");
 		}
 		
 	}
