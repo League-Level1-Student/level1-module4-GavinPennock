@@ -5,5 +5,6 @@ public class whackAMoleRunner {
 		
 whackAMole wam=new whackAMole();
 wam.run();
+
 	}
 }

@@ -55,7 +55,7 @@ public class whackAMole implements ActionListener {
 		button16.addActionListener(this);
 		//stuff
 		frame.setVisible(true);
-		frame.setSize(200,300);
+		frame.setSize(300,500);
 		panel.add(button1);
 		panel.add(button2);
 		panel.add(button3);
@@ -80,35 +80,35 @@ void pickMole() {
 	Random ran=new Random();
 	int random=ran.nextInt(16);
 	if(random==0) {
-		button1.add(label);
+		button1.setText("mole");
 	}else if(random==1) {
-		button2.add(label);
+		button2.setText("mole");
 	}else if(random==2) {
-		button3.add(label);
+		button3.setText("mole");
 	}else if(random==3) {
-		button4.add(label);
+		button4.setText("mole");
 	}else if(random==4) {
-		button5.add(label);
+		button5.setText("mole");
 	}else if(random==5) {
-		button6.add(label);
+		button6.setText("mole");
 	}else if(random==6) {
-		button7.add(label);
+		button7.setText("mole");
 	}else if(random==7) {
-		button8.add(label);
+		button8.setText("mole");
 	}else if(random==8) {
-		button9.add(label);
+		button9.setText("mole");
 	}else if(random==10) {
-		button11.add(label);
+		button11.setText("mole");
 	}else if(random==11) {
-		button12.add(label);
+		button12.setText("mole");
 	}else if(random==12) {
-		button13.add(label);
+		button13.setText("mole");
 	}else if(random==13) {
-		button14.add(label);
+		button14.setText("mole");
 	}else if(random==14) {
-		button15.add(label);
+		button15.setText("mole");
 	}else if(random==15) {
-		button16.add(label);
+		button16.setText("mole");
 	}
 
 }
@@ -117,9 +117,22 @@ void pickMole() {
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed = (JButton) e.getSource();
 		if(buttonPressed==button) {
-			pickMole();
+		button1.setText("mole");
 			System.out.println("started");
+			
+		}
+		if(buttonPressed.getText().equals("mole")) {
+			button1.setText("");
+			buttonPressed.setText("");
+			//frame.add(panel);
+			//frame.pack();
+			//run();
+			frame.dispose();
+			run();
+			pickMole();
+			
 		}
 		
 	}
+	
 }
