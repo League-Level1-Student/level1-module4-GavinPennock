@@ -1,4 +1,5 @@
 package _12_slot_machine;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
@@ -10,61 +11,87 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class slotMAchine implements ActionListener {
-	JFrame frame=new JFrame();
-	JPanel panel=new JPanel();
-	JPanel panel1=new JPanel();
-	JPanel slot1=new JPanel();
-	JPanel slot2=new JPanel();
-	JPanel slot3=new JPanel();
-	JButton button=new JButton("spin!");
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JLabel slot1 = new JLabel();
+	JLabel slot2 = new JLabel();
+	JLabel slot3 = new JLabel();
+	JButton button = new JButton("spin!");
 	private int buttonCount = 0;
-public void run() {
-	frame.setVisible(true);
-	frame.add(panel);
-	panel.add(slot);
-	panel.add(slot2);
-	panel.add(slot3);
-	panel1.add(button);
-	
-	buttonCount++;
-	frame.add(panel1);
-	button.addActionListener(this);
-	frame.setSize(500,500);
-	frame.pack();
-	
-		
-	}
-private JLabel createLabelImage(String fileName) throws MalformedURLException{
-    URL imageURL = getClass().getResource(fileName);
-if (imageURL == null){
-	System.err.println("Could not find image " + fileName);
-	return new JLabel();
-}
-Icon icon = new ImageIcon(imageURL);
-JLabel imageLabel = new JLabel(icon);
-return imageLabel;
-}
 
-@Override
-public void actionPerformed(ActionEvent e) {
-	Random r=new Random();
-	int ran=r.nextInt(3);
-	int ra=r.nextInt(3);
-	int rn=r.nextInt(3);
-	if(ran==0) {
-		System.out.println("0");
+	public void run() {
+		slot3.setIcon(createLabelImage("pear_PNG.png"));
+		slot2.setIcon(createLabelImage("pear_PNG.png"));
+		slot1.setIcon(createLabelImage("pear_PNG.png"));
 		
-	}else if(ran==1) {
-		System.out.println("1");
-	}else if(ran==2) {
-		System.out.println("2");
+		frame.setVisible(true);
+		frame.add(panel);
+		panel.add(slot1);
+		panel.add(slot2);
+		panel.add(slot3);
+		panel.add(button);
+		button.addActionListener(this);
+		frame.pack();
+		
+
 	}
- 	if(ran==0) {
- 		slot1.createLabelImage("apple_PNG.png");
- 	}
-}
+
+	private Icon createLabelImage(String fileName) {
+		URL imageURL = getClass().getResource(fileName);
+		if (imageURL == null) {
+			System.err.println("Could not find image " + fileName);
+			return null;
+		}
+		Icon icon = new ImageIcon(imageURL);
+		JLabel imageLabel = new JLabel(icon);
+		return icon;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Random r = new Random();
+		int ran = r.nextInt(3);
+		int ra = r.nextInt(3);
+		int rn = r.nextInt(3);
+		if (ran == 0) {
+			System.out.println("0");
+			slot1.setIcon(createLabelImage("cherry_PNG.png"));
+		} else if (ran == 1) {
+			System.out.println("1");
+			slot1.setIcon(createLabelImage("apple_PNG.png"));
+		} else if (ran == 2) {
+			System.out.println("2");
+			slot1.setIcon(createLabelImage("pear_PNG.png"));
+		}
+		if (ra == 0) {
+			System.out.println("0");
+			slot2.setIcon(createLabelImage("cherry_PNG.png"));
+		} else if (ra == 1) {
+			System.out.println("1");
+			slot2.setIcon(createLabelImage("apple_PNG.png"));
+		} else if (ra == 2) {
+			System.out.println("2");
+			slot2.setIcon(createLabelImage("pear_PNG.png"));
+		}
+		if (rn == 0) {
+			System.out.println("0");
+			slot3.setIcon(createLabelImage("cherry_PNG.png"));
+		} else if (rn == 1) {
+			System.out.println("1");
+			slot3.setIcon(createLabelImage("apple_PNG.png"));
+		} else if (rn == 2) {
+			System.out.println("2");
+			slot3.setIcon(createLabelImage("pear_PNG.png"));
+		}
+		frame.pack();
+		frame.repaint();
+		if(ran==rn&&ran==ra) {
+			JOptionPane.showMessageDialog(null, "big win!!!\nu win 10,000!");
+		}
+	}
 
 }
